@@ -5,8 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def recommendations
-    favorite_movies = User.find(params[:user_id]).favorites
-    @recommendations = RecommendationEngine.new(favorite_movies).recommendations
+    @recommendations = RecommendationEngine.new(params).recommendations
     render json: @recommendations
   end
 
